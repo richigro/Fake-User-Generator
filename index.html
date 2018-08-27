@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>test</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    
+    <header role="banner">
+       
+    </header>
+
+    <main class="js-main" role="main" aria-live="polite">
+
+      <form class="js-form">
+        <fieldset>
+          <legend>How many users would you like to generate?</legend>
+          <input class="js-input" type="number" min="1" max="20" required />
+          <button>Submit</button>
+        </fieldset>  
+      </form> 
+
+     <section class="user" id="${data.login.md5}">
+
+        <img class="js-img  user-img" src="${data.picture.medium}" alt="user photo">
+        <h1 class="userFullName">Ricardo Guerrero</h1>
+
+        
+          <div class="js-more-info selector">
+              <i class="fas fa-angle-down"></i>
+              <p>More Info</p>
+          </div>
+          <div class="js-content notShowing content">
+          <p class="name">Name: ${data.name.title} ${data.name.first} ${data.name.last}</p>
+          <p class="gender">Gender: ${data.gender}</p> 
+          <p class="email">Email: ${data.email}</p>
+          <p class="userName">UserName: ${data.login.username}</p>
+          <p class="password">Password: ${data.login.salt}</p>
+          <p class="city">City: ${data.location.city}</p>
+          <p class="address">Address: ${data.location.street}</p>
+          <p class="state">State: ${data.location.state}</p>
+          <p class="zipCode">Zip Code: ${data.location.postcode}</p>
+          <p class="age">Age: ${data.dob.age}</p>
+          <p class="dob">Date of Birth: ${data.dob.date}</p> 
+          <p class="cell">Cell Phone: ${data.cell}</p>  
+        </div>   
+        
+        <button class="js-btn user-btn notShowing">Copy to clipboard <i alt="copy icon" class="far fa-copy"></i></button>
+      </section>
+
+    </main>  
+   
+      
+    
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
