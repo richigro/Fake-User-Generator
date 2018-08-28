@@ -72,7 +72,7 @@
    });
  }
  
- function abc(numOfUsers) {
+ function renderUser(numOfUsers) {
    for(let i =0; i < numOfUsers; i++) {
      getDataFromApi();
    }
@@ -89,7 +89,7 @@
      // console.log(numberOfUsers);
      //clear current view
      // $(".js-main").remove().children();
-     abc(numberOfUsers);
+     renderUser(numberOfUsers);
    })
    
    
@@ -102,7 +102,8 @@
    $(".js-main").on("click", ".js-more-info", event => {
      // toggle class display none
      console.log(event.target);
-     $(".js-content").toggleClass("notShowing");
+    //  $(this).closest(".js-content").toggleClass("notShowing");
+
      // cange arrow icon 
      $(".js-more-info > i").toggleClass("fa-angle-up");
      // show copy button
