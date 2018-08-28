@@ -103,7 +103,7 @@
      // toggle class display none
      console.log(event.target);
     //  $(this).closest(".js-content").toggleClass("notShowing");
-
+     $(this).siblings(".js-content").toggleClass("notShowing");
      // cange arrow icon 
      $(".js-more-info > i").toggleClass("fa-angle-up");
      // show copy button
