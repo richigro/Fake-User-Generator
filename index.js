@@ -102,7 +102,7 @@
    $(".js-main").on("click", ".js-more-info", event => {
      // toggle class display none
      console.log(event.target);
-     $(".js-content").toggleClass("notShowing");
+     $(this).siblings(".js-content").toggleClass("notShowing");
      // cange arrow icon 
      $(".js-more-info > i").toggleClass("fa-angle-up");
      // show copy button
