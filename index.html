@@ -10,11 +10,6 @@
   <body>
     
     <header role="banner">
-       
-    </header>
-
-    <main class="js-main" role="main" aria-live="polite">
-
       <form class="js-form">
         <fieldset>
           <legend>How many users would you like to generate?</legend>
@@ -22,7 +17,9 @@
           <button>Submit</button>
         </fieldset>  
       </form> 
+    </header>
 
+    <main class="js-main" role="main" aria-live="polite">
      <section class="user" id="${data.login.md5}">
         <i class="js-remove far fa-times-circle"></i>
         <img class="js-img  user-img" src="${data.picture.medium}" alt="user photo">

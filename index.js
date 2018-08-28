@@ -29,7 +29,7 @@
 
    <section class="user" id="${data.login.md5}">
    <i class="js-remove far fa-times-circle"></i>
-   <img class="js-img  user-img" src="${data.picture.medium}" alt="user photo">
+   <img class="js-img  user-img" src="${data.picture.large}" alt="user photo">
    <h1 class="userFullName">${data.name.title} ${data.name.first} ${data.name.last}</h1>
 
    
