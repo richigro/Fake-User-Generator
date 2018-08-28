@@ -14,7 +14,6 @@
     border: 3px solid #89c63c;
     display: block;
     margin: 1% 1%;
-    
     padding: 5px;
     float: left;
     color: #fff;
@@ -81,4 +80,15 @@
   
   .notShowing {
     display: none;
+  }
+
+  .fa-times-circle {
+    /* position: absolute; */
+    float: right;
+    padding: 2px;
+
+    /* background-color: pink; */
+    font-size: 25px;
+
+
   }

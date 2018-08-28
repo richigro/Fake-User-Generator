@@ -26,31 +26,34 @@
  
  function generateUser(data) {
    return `
-     <section class="user" id="${data.login.md5}">
- 
-         <img class="js-img  user-img" src="${data.picture.large}" alt="user photo">
-         <h1 class="userFullName">${data.name.title} ${data.name.first} ${data.name.last}</h1>
-           <div class="js-more-info selector">
-               <i class="fas fa-angle-down"></i>
-               <p>More Info</p>
-           </div>
-           <div class="js-content notShowing content">
-           <p class="name">Name: ${data.name.title} ${data.name.first} ${data.name.last}</p>
-           <p class="gender">Gender: ${data.gender}</p> 
-           <p class="email">Email: ${data.email}</p>
-           <p class="userName">UserName: ${data.login.username}</p>
-           <p class="password">Password: ${data.login.salt}</p>
-           <p class="city">City: ${data.location.city}</p>
-           <p class="address">Address: ${data.location.street}</p>
-           <p class="state">State: ${data.location.state}</p>
-           <p class="zipCode">Zip Code: ${data.location.postcode}</p>
-           <p class="age">Age: ${data.dob.age}</p>
-           <p class="dob">Date of Birth: ${data.dob.date}</p> 
-           <p class="cell">Cell Phone: ${data.cell}</p>  
-         </div>   
-         
-         <button class="js-btn user-btn notShowing">Copy to clipboard <i alt="copy icon" class="far fa-copy"></i></button>
-       </section>
+
+   <section class="user" id="${data.login.md5}">
+   <i class="js-remove far fa-times-circle"></i>
+   <img class="js-img  user-img" src="${data.picture.medium}" alt="user photo">
+   <h1 class="userFullName">${data.name.title} ${data.name.first} ${data.name.last}</h1>
+
+   
+     <div class="js-more-info selector">
+         <i class="fas fa-angle-down"></i>
+         <p>More Info</p>
+     </div>
+     <div class="js-content notShowing content">
+     <p class="name">Name: ${data.name.title} ${data.name.first} ${data.name.last}</p>
+     <p class="gender">Gender: ${data.gender}</p> 
+     <p class="email">Email: ${data.email}</p>
+     <p class="userName">UserName: ${data.login.username}</p>
+     <p class="password">Password: ${data.login.salt}</p>
+     <p class="city">City: ${data.location.city}</p>
+     <p class="address">Address: ${data.location.street}</p>
+     <p class="state">State: ${data.location.state}</p>
+     <p class="zipCode">Zip Code: ${data.location.postcode}</p>
+     <p class="age">Age: ${data.dob.age}</p>
+     <p class="dob">Date of Birth: ${data.dob.date}</p> 
+     <p class="cell">Cell Phone: ${data.cell}</p>  
+   </div>   
+   
+   <button class="js-btn user-btn notShowing">Copy to clipboard <i alt="copy icon" class="far fa-copy"></i></button>
+ </section>
    `;
  }
  
@@ -103,22 +106,26 @@
      // toggle class display none
      console.log(event.target);
     //  $(this).closest(".js-content").toggleClass("notShowing");
-     $(this).siblings(".js-content").toggleClass("notShowing");
+     $(event.target).closest(".user").find(".content").toggleClass("notShowing");
      // cange arrow icon 
-     $(".js-more-info > i").toggleClass("fa-angle-up");
+     $(event.target).closest(".user").find(".js-more-info > i").toggleClass("fa-angle-up");
      // show copy button
-     $(".js-btn").toggleClass("notShowing");
+     $(event.target).closest(".user").find(".js-btn").toggleClass("notShowing");
    });
  }
  
- 
- 
- 
+function removeUser() {
+  $(".js-main").on("click", ".js-remove", event => {
+    $(event.target).closest(".user").remove();
+
+  });
+}
  
  function appInstance(){
    howManyUsers();
    randomEmailDomain();
    viewMoreInfo();
+   removeUser();
  }
  
  $(appInstance);
