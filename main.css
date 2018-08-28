@@ -2,9 +2,66 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    
   }
-  
-  
+  body {
+    background-color: rgba(244, 246, 248, 1);
+  }
+  .header{
+    background-color: #89c63c
+  }
+
+  .logo {
+    font-size: 55px;
+    padding: 10px;
+    display: inline-block;
+    /* width: 10vw; */
+  }
+
+  .app-name {
+    display: inline-block;
+    /* width: 10vw; */
+  }  
+
+  .search-box {
+    display: inline-block;
+    border: 1px solid gray;
+    width: 60%;
+    height: 50px;
+  }
+  .mag-glass {
+    display: inline-block;
+    width: 20%;
+  }
+
+    .main-search {
+      display: inline-block;
+      width: 80%;
+
+    }
+
+    .login {
+      display: inline-block;
+      /* float: right; */
+      vertical-align: middle;
+      /* width: 20vw; */
+
+    }
+    .login > p {
+      margin-left: 10px;
+      display: inline-block;
+    }
+
+  .tool-bar{
+    position: relative;
+    background-color: pink;
+    display: block;
+    height:100vh;
+    width: 20%;
+    max-width: 300px;
+    float: left;
+    border: 1px solid gray;
+  }
   
   .user {
     height: auto;

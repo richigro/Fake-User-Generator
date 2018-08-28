@@ -49,7 +49,8 @@
      <p class="zipCode">Zip Code: ${data.location.postcode}</p>
      <p class="age">Age: ${data.dob.age}</p>
      <p class="dob">Date of Birth: ${data.dob.date}</p> 
-     <p class="cell">Cell Phone: ${data.cell}</p>  
+     <p class="cell">Cell Phone: ${data.cell}</p>
+     <input type="text">
    </div>   
    
    <button class="js-btn user-btn notShowing">Copy to clipboard <i alt="copy icon" class="far fa-copy"></i></button>
@@ -83,7 +84,7 @@
  
  //event listener 
  function howManyUsers() {
-   $(".js-main").on("submit", ".js-form", event => {
+   $(".js-tool-bar").on("submit", ".js-form", event => {
      event.preventDefault();
      //get number of desired users
      const numberOfUsers = $(".js-input").val();

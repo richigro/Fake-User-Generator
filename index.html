@@ -9,17 +9,32 @@
   </head>
   <body>
     
-    <header role="banner">
-      <form class="js-form">
-        <fieldset>
-          <legend>How many users would you like to generate?</legend>
-          <input class="js-input" type="number" min="1" max="20" required />
-          <button>Submit</button>
-        </fieldset>  
-      </form> 
+    <header class="js-header header" role="banner">
+        <i class="logo fas fa-user-secret"></i>
+        <h1 class="app-name">Fake_User_Generator</h1>
+        <div class="search-box">
+          <i class="mag-glass fas fa-search"></i>
+          <input class="main-search" type="text" placeholder="Search for user"/>
+        </div>
+        <div class="login">
+          <p>Log In</p>
+          <p>Sign Up</p>
+        </div>   
     </header>
 
-    <main class="js-main" role="main" aria-live="polite">
+    <section class="js-tool-bar tool-bar" role="Toolbar">
+        <form class="js-form">
+            <fieldset>
+              <legend>How many users would you like to generate?</legend>
+              <input class="js-input" type="number" min="1" max="20" required />
+              <button>Submit</button>
+            </fieldset>  
+          </form>
+    </section>
+
+
+
+    <main class="js-main main" role="main" aria-live="polite">
      <section class="user" id="${data.login.md5}">
         <i class="js-remove far fa-times-circle"></i>
         <img class="js-img  user-img" src="${data.picture.medium}" alt="user photo">
@@ -50,8 +65,9 @@
 
     </main>  
    
-      
+   <footer class="footer">   
     
+   </footer>
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
