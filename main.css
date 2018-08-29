@@ -19,7 +19,53 @@
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-    filter: blur(10px);
+    /* filter: blur(10px); */
+  }
+  .hero-text {
+    position: absolute;
+    color: white;
+    font-family: serif;
+    font-weight: 200;
+    z-index: 1;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.65);
+    top: 40%;
+    left: 10%;
+    display: inline;
+  }
+
+  .about {
+    position: absolute;
+    width: 80%;
+    color: white;
+    font-family: serif;
+    font-weight: 200;
+    z-index: 1;
+    font-size: 28px;
+    background-color: rgba(0, 0, 0, 0.65);
+    top: 44%;
+    left: 10%;
+    display: inline;
+  }
+
+  .get-started-btn {
+    position: absolute;
+    color: white;
+    font-family: serif;
+    font-weight: 200;
+    z-index: 1;
+    font-size: 32px;
+    padding: 5px;
+    border: none;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #89c63c;
+    width: 40%;
+    top: 55%;
+    left: 40%;
+  }
+
+  .get-started-btn:hover {
+    background-color: #75aa33;
   }
 
 

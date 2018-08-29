@@ -1,3 +1,18 @@
+function generateLandingPage() {
+  return 
+  `
+  <main class="js-landing landing-page" role="main">
+    <h1 class="hero-text">Welcome to Fake User Generator</h1>
+    <p class="about">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates eveniet quasi rerum odio tempora fuga, et maiores mollitia, deleniti dolorum perferendis enim amet exercitationem! Architecto reiciendis ipsam recusandae esse consectetur.</p>
+    <button class="js-app-btn get-started-btn">Get Started Now</button>
+  </main>
+  `;
+}
+
+
+
+
+
 
 function generateDashboard() {
   return 
@@ -165,9 +180,9 @@ function removeUser() {
 }
  
  function appInstance(){
-  generateLandingPage();
-  generateDashboard(); 
-  howManyUsers();
+  $(".js-body").append(generateLandingPage());
+  // generateDashboard(); 
+   howManyUsers();
    randomEmailDomain();
    viewMoreInfo();
    removeUser();
