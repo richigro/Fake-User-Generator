@@ -1,4 +1,46 @@
 
+function generateDashboard() {
+  return 
+  `
+  <header class="js-header header" role="banner">
+  <i class="far fa-caret-square-down notShowing more-actions"></i>
+  <i class="logo fas fa-user-secret"></i>
+  <h1 class="app-name">Fake_User_Generator</h1>
+  <div class="search-box">
+    <i class="mag-glass fas fa-search"></i>
+    <input class="main-search" type="text" placeholder="Search for user"/>
+  </div>
+  <div class="login">
+    <p>Log In</p>
+    <p>Sign Up</p>
+  </div>   
+</header>
+
+<section class="js-tool-bar tool-bar" role="Toolbar">
+  <form class="js-form">
+      <fieldset>
+        <legend>How many users would you like to generate?</legend>
+        <input class="js-input" type="number" min="1" max="20" required />
+        <button>Submit</button>
+      </fieldset>  
+    </form>
+</section>
+
+<main class="js-main main" role="main" aria-live="polite">
+
+</main>  
+
+<footer class="footer">   
+
+</footer>
+  
+  `;
+}
+
+
+
+
+
 
  function randomEmailDomain() {
     let domainName = "@example.com";
@@ -103,7 +145,7 @@
  
  //event listener for click
  function viewMoreInfo() {
-   $(".js-main").on("click", ".js-more-info", event => {
+   $(".js-body").on("click", ".js-more-info", event => {
      // toggle class display none
      console.log(event.target);
     //  $(this).closest(".js-content").toggleClass("notShowing");
@@ -116,14 +158,16 @@
  }
  
 function removeUser() {
-  $(".js-main").on("click", ".js-remove", event => {
+  $(".js-body").on("click", ".js-remove", event => {
     $(event.target).closest(".user").remove();
 
   });
 }
  
  function appInstance(){
-   howManyUsers();
+  generateLandingPage();
+  generateDashboard(); 
+  howManyUsers();
    randomEmailDomain();
    viewMoreInfo();
    removeUser();

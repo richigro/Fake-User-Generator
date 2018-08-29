@@ -10,6 +10,19 @@
   body {
     background-color: rgba(244, 246, 248, 1);
   }
+
+  .landing-page {
+    height: 100%;
+    background-image: url("/assets/img.jpg"); 
+    width: auto;
+    height: 100vh;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    filter: blur(10px);
+  }
+
+
   .header{
     background-color: #89c63c;
     width: 100%;
