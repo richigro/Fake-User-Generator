@@ -1,6 +1,5 @@
 function generateLandingPage() {
-  return 
-  `
+  return `
   <main class="js-landing landing-page" role="main">
     <h1 class="hero-text">Welcome to Fake User Generator</h1>
     <p class="about">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates eveniet quasi rerum odio tempora fuga, et maiores mollitia, deleniti dolorum perferendis enim amet exercitationem! Architecto reiciendis ipsam recusandae esse consectetur.</p>
@@ -15,8 +14,7 @@ function generateLandingPage() {
 
 
 function generateDashboard() {
-  return 
-  `
+  return `
   <header class="js-header header" role="banner">
   <i class="far fa-caret-square-down notShowing more-actions"></i>
   <i class="logo fas fa-user-secret"></i>
@@ -52,7 +50,13 @@ function generateDashboard() {
   `;
 }
 
-
+function getStarted() {
+  $(".js-body").on("click", ".js-app-btn", event => {
+    $(".js-body").empty();
+    $(".js-body").append(generateDashboard());
+  })
+  
+}
 
 
 
@@ -141,7 +145,7 @@ function generateDashboard() {
  
  //event listener 
  function howManyUsers() {
-   $(".js-tool-bar").on("submit", ".js-form", event => {
+   $(".js-body").on("submit", ".js-form", event => {
      event.preventDefault();
      //get number of desired users
      const numberOfUsers = $(".js-input").val();
@@ -182,6 +186,7 @@ function removeUser() {
  function appInstance(){
   $(".js-body").append(generateLandingPage());
   // generateDashboard(); 
+  getStarted();
    howManyUsers();
    randomEmailDomain();
    viewMoreInfo();
