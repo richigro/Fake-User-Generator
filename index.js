@@ -93,9 +93,9 @@ function getStarted() {
        "@codsworth.co.uk" 
     ]];
      if(randomNumber === domains.length) {
-       domainName =  name + "." + lastName + randNum + domains[randomNumber][Math.floor(Math.random() * 5)];
+       domainName =  firstName + "." + lastName + randNum + domains[randomNumber][Math.floor(Math.random() * 5)];
      } else {
-       domainName = name + "." + lastName + randNum +  domains[randomNumber];
+       domainName = firstName + "." + lastName + randNum +  domains[randomNumber];
      }
      return domainName;
   }
