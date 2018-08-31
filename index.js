@@ -40,29 +40,31 @@ function generateDashboard() {
         <input type="radio" name="gender" value="female"> Female<br>
         <input type="radio" name="gender" value="any" checked="checked"> Any
         <h3>Nationality</h3>
-  <!--<select>
+<select class="nationality">
   <option value="any">Any</option>
-  <option value="australia">Australia</option>
-  <option value="brazil">Brazil</option>
-  <option value="canada">Canada</option>
-  <option value="switzerland">Switzerland</option>
-  <option value="germany">Germany</option>
-  <option value="denmark">Denmark</option>
-  <option value="spain">Spain</option>
-  <option value="finland">Finland</option>
-  <option value="france">France</option>
-  <option value="great britain">Great Britain</option>
-  <option value="ireland">Ireland</option>
-  <option value="norway">Norway</option>
-  <option value="new zealand">New Zealand</option>
-  <option value="turkey">Turkey</option>
-  <option value="united states">United States</option>
-</select>   -->  
+  <option value="au">Australia</option>
+  <option value="br">Brazil</option>
+  <option value="ca">Canada</option>
+  <option value="ch">Switzerland</option>
+  <option value="de">Germany</option>
+  <option value="dk">Denmark</option>
+  <option value="es">Spain</option>
+  <option value="fi">Finland</option>
+  <option value="fr">France</option>
+  <option value="gb">Great Britain</option>
+  <option value="ir">Iran</option>
+  <option value="no">Norway</option>
+  <option value="nz">New Zealand</option>
+  <option value="tr">Turkey</option>
+  <option value="us">United States</option>
+</select>  
   <button>Submit</button>
       </fieldset>  
     </form>
+ <button class="js-delete-all notShowing">Delete All Users</button>   
 </section>
 <main class="js-main main" role="main" aria-live="polite">
+
 </main>  
 <footer class="footer">   
 </footer>
@@ -79,8 +81,8 @@ function getStarted() {
 
 
 
- function randomEmailDomain(useremail) {
-    
+ function randomEmailDomain(firstName, lastName) {
+    const randNum = Math.floor(Math.random() * 100) +1;
     let domainName = "@example.com";
     let randomNumber = Math.floor(Math.random() * 5);
     const domains = ["@outlook.com", "@gmail.com", "@hotmail.com", "@yahoo.com", [
@@ -88,12 +90,12 @@ function getStarted() {
        "@watchstore.com",
        "@aol.com",
        "@lala.com.mx",
-       "@wellsworth.co.uk" 
+       "@codsworth.co.uk" 
     ]];
      if(randomNumber === domains.length) {
-       domainName =  domains[randomNumber][Math.floor(Math.random() * 5)];
+       domainName =  name + "." + lastName + randNum + domains[randomNumber][Math.floor(Math.random() * 5)];
      } else {
-       domainName = domains[randomNumber];
+       domainName = name + "." + lastName + randNum +  domains[randomNumber];
      }
      return domainName;
   }
@@ -175,7 +177,7 @@ return nationality;
     <div class="js-content notShowing content">
       <p class="name">Name: ${data.name.title} ${data.name.first} ${data.name.last}</p>
       <p class="gender">Gender: ${data.gender}</p> 
-      <p class="email">Email: ${data.email}</p>
+      <p class="email">Email: ${randomEmailDomain(data.name.first, data.name.last)}</p>
       <p class="userName">UserName: ${data.login.username}</p>
       <p class="password">Password: ${data.login.salt}</p>
       <p class="city">City: ${data.location.city}</p>
@@ -195,16 +197,17 @@ return nationality;
  
  
  function getDataFromApi(gender, nat, numberOfUsers){
-   const url = `https://randomuser.me/api/?results=${numberOfUsers}`;
-    // const nat = 
+   const url = `https://randomuser.me/api/?results=${numberOfUsers}&gender=${gender}&nat=${nat}`;
+  console.log(nat);
+  console.log(gender);
    $.ajax({
      url: url,
      success: function(data) {
-      //  console.log()
+       console.log(data.results)
       data.results.forEach(obj => {
-        console.log(obj);
-        console.log("=========================================");
-        // $(".js-main").append(generateUser(obj));
+        // console.log(obj);
+        // console.log("=========================================");
+        $(".js-main").append(generateUser(obj));
       });
       
       //  data = data.results;
@@ -215,10 +218,10 @@ return nationality;
    });
  }
  
- function renderUser(numOfUsers) {
-     getDataFromApi(numOfUsers);
+//  function renderUser(numOfUsers) {
+//      getDataFromApi(numOfUsers);
    
- }
+//  }
  
  //event listener 
  function formSubmit() {
@@ -229,9 +232,11 @@ return nationality;
      // clear input
      $(".js-input").val("");
      // console.log(numberOfUsers);
-     //clear current view
-     // $(".js-main").remove().children();
-     renderUser(numberOfUsers);
+     const nationality = $(".nationality").val();
+     const gender = $("input[name=gender]:checked").val();
+    
+     getDataFromApi(gender, nationality, numberOfUsers);
+     $(".js-delete-all").toggleClass("notShowing");
    })
    
    
@@ -259,6 +264,14 @@ function removeUser() {
 
   });
 }
+
+function deleteAllUsers() {
+  $(".js-body").on("click", ".js-delete-all", event => {
+    $(".js-main").empty();
+    $(".js-delete-all").toggleClass("notShowing");
+  });
+}
+
  
  function appInstance(){
   $(".js-body").append(generateLandingPage());
@@ -267,6 +280,7 @@ function removeUser() {
    randomEmailDomain();
    viewMoreInfo();
    removeUser();
+   deleteAllUsers();
  }
  
  $(appInstance);
