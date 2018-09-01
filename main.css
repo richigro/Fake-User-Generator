@@ -91,45 +91,11 @@
     font-size: 55px;
     padding: 10px;
     display: inline-block;
-    /* width: 10vw; */
   }
 
   .app-name {
     display: inline-block;
-    /* width: 10vw; */
   }  
-
-  .search-box {
-    display: inline-block;
-    border: 1px solid gray;
-    width: 50%;
-    height: 50px;
-  }
-
-  .mag-glass {
-    display: block;
-    position: relative;
-    float: right;
-    width: 20%;
-    margin-top: 50%;
-  }
-
-  .main-search {
-    display: inline-block;
-    width: 80%;
-  }
-
-  .login {
-    display: inline-block;
-    /* float: right; */
-    vertical-align: middle;
-    /* width: 20vw; */
-    }
-    
-  .login > p {
-    margin-left: 10px;
-    display: inline-block;
-    }
 
   .tool-bar{
     position: fixed;
@@ -139,23 +105,66 @@
     height: 100vh;
     width: 270px;
     max-width: 300px;
-    /* float: left; */
+    padding: 5px;
     border: 1px solid rgb(204, 203, 203);
     margin-top: 0;
     clear: both;
-    /* bottom: 0px; */
   }
 
   .form {
-
+    margin-top: 120px;
   }
 
+  .users-text {
+    font-size: 23px;
+    font-weight: 500;
+  }
+  .number-of-users-input{
+    display: block;
+    width: 90%;
+    height: auto;
+    font-size: 23px;
+    margin: 50px 0;
+  }
+
+  .filters-text {
+    margin-bottom: 50px;
+  }
   .optional-text {
     font-size: 12px;
     margin-left: 5px;
   }
+  .gender-text {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+input[type="radio"] {
+  margin-left: 15px;
+}
+  .nationality-text {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+  }
 
+  .nationality-dropdown {
+    display: block;
+    width: 100%;
+    font-size: 1.2em;
+  }
 
+  .generate-users-form {
+    background-color: #89c63c;
+    border-radius: 8px 8px;
+    padding: 5px;
+    border: none;
+    display: block; 
+    margin: 20px auto;
+  }
+  .default {
+    font-size: 0.5em;
+  }
 
 
   .main {
@@ -188,7 +197,6 @@
     display: inline-block;
     margin: 5px 5px;
     padding: 5px;
-    /* float: left; */
     color: #fff;
     border-radius: 5px 20px 5px;
   }
@@ -224,7 +232,6 @@
     .logo {
       font-size: 40px;
       margin: 0 auto;
-      /* margin-left: 50%; */
       display: inline-block;
     }
 
@@ -270,6 +277,7 @@
     margin-left: 10%;
     font-size: 15px;
     text-transform: capitalize;
+    text-align: left;
   }
 
   .user-btn {
@@ -284,10 +292,9 @@
   }
   
   .selector{
-    /* background-color: pink; */
+    text-align: left;
     width: 90%;
     margin: 15px auto;
-    /* margin-top: 15%; */
     border: solid white 1.5px;
     border-radius: 10px 10px 10px 10px;
     padding: 7px;
@@ -297,7 +304,6 @@
     display: inline-block;
     padding: 0px;
     border-radius: 50%;
-    /* border: solid white 1px; */
   }
   
   .selector > p {
@@ -311,9 +317,7 @@
   }
 
   .fa-times-circle {
-    /* position: absolute; */
     float: right;
     padding: 2px;
-    /* background-color: pink; */
     font-size: 25px;
   }

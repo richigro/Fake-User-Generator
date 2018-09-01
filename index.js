@@ -21,9 +21,9 @@ function generateDashboard() {
   </header>
 
 <section class="js-tool-bar tool-bar" role="search">
-  <form class="js-form">
-  <label for="how-many">How many users do you want to create ?</label>
-    <input id="how-many" class="js-input" type="number" min="1" max="100" required />
+  <form class="js-form form">
+  <label class="users-text" for="how-many">How many users do you want to create ?</label>
+    <input id="how-many" class="js-input number-of-users-input" type="number" min="1" max="100" required />
     <h2 class="filters-text">Filters<span class="optional-text">(optional)</span></h2>
     <fieldset class="radio-buttons" role="radiogroup">
       <legend class="gender-text">Gender</legend>
@@ -32,11 +32,11 @@ function generateDashboard() {
       <input type="radio" name="gender" id="female" value="female"/>
       <label for="female">Female</label>
       <input type="radio" name="gender" id="any" value="any" checked="checked"/>
-      <label for="any">Any</label>
+      <label for="any">Any <span class="default">(default)</span></label>
    </fieldset>
    <h3 class="nationality-text">Nationality</h3>
    <select label="nationalities" class="nationality-dropdown">
-    <option label="Any" value="any">Any</option>
+    <option label="Any (default)" value="any">Any<span class="default">(default)</span></option>
     <option label="Australia" value="au">Australia</option>
     <option label="Brazil" value="br">Brazil</option>
     <option label="Canada" value="ca">Canada</option>
@@ -53,7 +53,7 @@ function generateDashboard() {
     <option label="Turkey" value="tr">Turkey</option>
     <option label="United States" value="us">United States</option>
    </select>  
-   <button class="submmit-form">Submit</button>
+   <button class="generate-users-form">Generate</button>
   </form>
   <button class="js-delete-all-users delete-all-users notShowing">Delete All Users</button>   
 </section>
