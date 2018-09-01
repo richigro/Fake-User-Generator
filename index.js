@@ -1,3 +1,5 @@
+
+// basic landing page with info about the app
 function generateLandingPage() {
   return `
   <main class="js-landing landing-page" role="main">
@@ -9,11 +11,7 @@ function generateLandingPage() {
   `;
 }
 
-
-
-
-
-
+//main user dashborad where users are created 
 function generateDashboard() {
   return `
   <header class="js-header header" role="banner">
@@ -33,37 +31,40 @@ function generateDashboard() {
         <input type="radio" name="gender" value="female"> Female<br>
         <input type="radio" name="gender" value="any" checked="checked"> Any
         <h3>Nationality</h3>
-<select class="nationality">
-  <option value="any">Any</option>
-  <option value="au">Australia</option>
-  <option value="br">Brazil</option>
-  <option value="ca">Canada</option>
-  <option value="ch">Switzerland</option>
-  <option value="de">Germany</option>
-  <option value="dk">Denmark</option>
-  <option value="es">Spain</option>
-  <option value="fi">Finland</option>
-  <option value="fr">France</option>
-  <option value="gb">Great Britain</option>
-  <option value="ir">Iran</option>
-  <option value="no">Norway</option>
-  <option value="nz">New Zealand</option>
-  <option value="tr">Turkey</option>
-  <option value="us">United States</option>
-</select>  
+  <select class="nationality">
+    <option value="any">Any</option>
+    <option value="au">Australia</option>
+    <option value="br">Brazil</option>
+    <option value="ca">Canada</option>
+    <option value="ch">Switzerland</option>
+    <option value="de">Germany</option>
+    <option value="dk">Denmark</option>
+    <option value="es">Spain</option>
+    <option value="fi">Finland</option>
+    <option value="fr">France</option>
+    <option value="gb">Great Britain</option>
+    <option value="ir">Iran</option>
+    <option value="no">Norway</option>
+    <option value="nz">New Zealand</option>
+    <option value="tr">Turkey</option>
+    <option value="us">United States</option>
+  </select>  
   <button>Submit</button>
-      </fieldset>  
-    </form>
- <button class="js-delete-all notShowing">Delete All Users</button>   
+   </fieldset>  
+  </form>
+  <button class="js-delete-all notShowing">Delete All Users</button>   
 </section>
-<main class="js-main main" role="main" aria-live="polite">
 
-</main>  
+<main class="js-main main" role="main" aria-live="polite">
+</main>
+
 <footer class="footer">   
 </footer>
+
   `;
 }
 
+//transition between landing page and user dashboard
 function getStarted() {
   $(".js-body").on("click", ".js-app-btn", event => {
     $(".js-body").empty();
@@ -71,9 +72,7 @@ function getStarted() {
   })
 }
 
-
-
-
+// randomises email domain name to a more creible domain insted of just @example.com
  function randomEmailDomain(firstName, lastName) {
     const randNum = Math.floor(Math.random() * 100) +1;
     let domainName = "@example.com";
@@ -93,6 +92,7 @@ function getStarted() {
      return domainName;
   }
  
+ // spells out the full nationality of a user instead of using its iso country code 
  function nationality(nat) {
   let nationality = ''; 
   switch (nat) {
@@ -150,14 +150,12 @@ function getStarted() {
     default :                       
       nationality = "Not available";          
 }
-return nationality;
+  return nationality;
  }
  
- 
- 
+ // generates a user from a passed data object that contains data from api call
  function generateUser(data) {
    return `
-
    <section class="user" id="${data.login.md5}">
     <i class="js-remove far fa-times-circle"></i>
     <img class="js-img  user-img" src="${data.picture.large}" alt="user photo">
@@ -181,95 +179,131 @@ return nationality;
       <p class="dob">Date of Birth: ${data.dob.date}</p> 
       <p class="cell">Cell Phone: ${data.cell}</p>
       <p class="nat">Nationality: ${nationality(data.nat)}</p>
-      <input type="text">
     </div>   
-    <button class="js-btn user-btn notShowing">Copy to clipboard <i alt="copy icon" class="far fa-copy"></i></button>
+    <button class="js-clipboard-btn user-btn notShowing">Copy to clipboard <i alt="copy icon" class="far fa-copy"></i></button>
    </section>
    `;
  }
  
- 
+ // call the server with the following parameter, if provied; gender, number and nationality.
  function getDataFromApi(gender, nat, numberOfUsers){
+   // constructed query string
    const url = `https://randomuser.me/api/?results=${numberOfUsers}&gender=${gender}&nat=${nat}`;
-  console.log(nat);
-  console.log(gender);
+   // ajax call to json api (GET default)
    $.ajax({
      url: url,
      success: function(data) {
-       console.log(data.results)
+      //recieves data in array of objects, each object is a user.
       data.results.forEach(obj => {
-        // console.log(obj);
-        // console.log("=========================================");
+        //appends each user to main dashboard view
         $(".js-main").append(generateUser(obj));
       });
-      
-      //  data = data.results;
-      //  console.log(data);
-      //  console.log("=====================================");
-      //  $(".js-main").append(generateUser(data));
      }
    });
  }
  
-//  function renderUser(numOfUsers) {
-//      getDataFromApi(numOfUsers);
-   
-//  }
- 
- //event listener 
+ //Event listener; Submmit the form with required, and optional parameters if provided. 
  function formSubmit() {
    $(".js-body").on("submit", ".js-form", event => {
+     // stops default behaviour of trying to submmit to a server.
      event.preventDefault();
-     //get number of desired users
+     //get number of desired users.
      const numberOfUsers = $(".js-input").val();
-     // clear input
+     // clear input, for good ux.
      $(".js-input").val("");
-     // console.log(numberOfUsers);
+     // (optional) select user's nationality if selected.
      const nationality = $(".nationality").val();
+     // (optional) select user's gender if selected.
      const gender = $("input[name=gender]:checked").val();
-    
+    // calls ajax function with appropiate parameters.
      getDataFromApi(gender, nationality, numberOfUsers);
-     $(".js-delete-all").toggleClass("notShowing");
-   })
-   
-   
+    // shows option to delete all users that were rendered in first load. 
+    $(".js-delete-all").toggleClass("notShowing");
+   });  
  }
  
- 
- 
- //event listener for click
+ //Event listener; shows more info about user dropdown fashion.
  function viewMoreInfo() {
    $(".js-body").on("click", ".js-more-info", event => {
-     // toggle class display none
-     console.log(event.target);
-    //  $(this).closest(".js-content").toggleClass("notShowing");
+     //Toggles user information.
      $(event.target).closest(".user").find(".content").toggleClass("notShowing");
-     // cange arrow icon 
+     // Toggles arrow icon up or down. 
      $(event.target).closest(".user").find(".js-more-info > i").toggleClass("fa-angle-up");
-     // show copy button
-     $(event.target).closest(".user").find(".js-btn").toggleClass("notShowing");
+     // Toggles; display: none, on copy to clipboard button.
+     $(event.target).closest(".user").find(".js-clipboard-btn").toggleClass("notShowing");
    });
  }
  
+// Removes an user individually from dashboard view. 
 function removeUser() {
   $(".js-body").on("click", ".js-remove", event => {
+    // Removes clicked on user, when x button is clicked. 
     $(event.target).closest(".user").remove();
-
   });
 }
 
+// Deletes all users at once from the dashboard view.
 function deleteAllUsers() {
   $(".js-body").on("click", ".js-delete-all", event => {
-    $(".js-main").empty();
+    console.log($.contains( $("div"), $("p")));
+    // Empties the dashboard view.
+    // $(".js-main").empty();
+    console.log($.contains( $("div"), $("p")));
     $(".js-delete-all").toggleClass("notShowing");
+    // console.log($(".js-user"));
   });
 }
+
+// copy to clipboar code here
+
+function fallbackCopyTextToClipboard(text) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Fallback: Copying text command was ' + msg);
+  } catch (err) {
+    console.error('Fallback: Oops, unable to copy', err);
+  }
+
+  document.body.removeChild(textArea);
+}
+function copyTextToClipboard(text) {
+  if (!navigator.clipboard) {
+    fallbackCopyTextToClipboard(text);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(function() {
+    console.log('Async: Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Async: Could not copy text: ', err);
+  });
+}
+
+
+function copyToClipboard(){
+  $(".js-main").on('click', ".js-clipboard-btn", event => {
+    const userText = $(this).closest(".js-content").text();
+    console.log("test");
+    console.log(userText);
+    copyTextToClipboard(text);
+  });
+}
+
+
+// copy to cliboard code neds here
 
  
  function appInstance(){
   $(".js-body").append(generateLandingPage());
    getStarted();
    formSubmit();
+   copyToClipboard();
    randomEmailDomain();
    viewMoreInfo();
    removeUser();
