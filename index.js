@@ -20,18 +20,22 @@ function generateDashboard() {
     <h1 class="app-name">Fake User Generator</h1>
   </header>
 
-<section class="js-tool-bar tool-bar" role="toolbar">
+<section class="js-tool-bar tool-bar" role="search">
   <form class="js-form">
-    <fieldset>
-      <h2>How many Users</h2>
-        <input class="js-input" type="number" min="1" max="100" required />
-        <h2 class="filters-text">Filters</h2>
-        <h3 class="gender-text">Gender</h3>
-        <input type="radio" name="gender" value="male" checked> Male<br>
-        <input type="radio" name="gender" value="female"> Female<br>
-        <input type="radio" name="gender" value="any" checked="checked"> Any
-        <h3>Nationality</h3>
-  <select class="nationality">
+  <label for="how-many">How many users do you want to create ?</label>
+    <input id="how-many" class="js-input" type="number" min="1" max="100" required />
+    <h2 class="filters-text">Filters<span class="optional-text">(optional)</span></h2>
+    <fieldset class="radio-buttons" role="radiogroup">
+      <legend class="gender-text">Gender</legend>
+      <input type="radio" name="gender" id="male" value="male"/>
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="female" value="female"/>
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="any" value="any" checked="checked"/>
+      <label for="any">Any</label>
+   </fieldset>
+   <h3>Nationality</h3>
+   <select class="nationality">
     <option value="any">Any</option>
     <option value="au">Australia</option>
     <option value="br">Brazil</option>
@@ -48,11 +52,10 @@ function generateDashboard() {
     <option value="nz">New Zealand</option>
     <option value="tr">Turkey</option>
     <option value="us">United States</option>
-  </select>  
-  <button>Submit</button>
-   </fieldset>  
+   </select>  
+   <button>Submit</button>
   </form>
-  <button class="js-delete-all notShowing">Delete All Users</button>   
+  <button class="js-delete-all-users delete-all-users notShowing">Delete All Users</button>   
 </section>
 
 <main class="js-main main" role="main" aria-live="polite">
@@ -224,7 +227,7 @@ function getStarted() {
     // calls ajax function with appropiate parameters.
      getDataFromApi(gender, nationality, numberOfUsers);
     // shows option to delete all users that were rendered in first load. 
-    $(".js-delete-all").toggleClass("notShowing");
+    $(".js-delete-all-users").toggleClass("notShowing");
    });  
  }
  
@@ -250,12 +253,12 @@ function removeUser() {
 
 // Deletes all users at once from the dashboard view.
 function deleteAllUsers() {
-  $(".js-body").on("click", ".js-delete-all", event => {
+  $(".js-body").on("click", ".js-delete-all-users", event => {
     console.log($.contains( $("div"), $("p")));
     // Empties the dashboard view.
     // $(".js-main").empty();
     console.log($.contains( $("div"), $("p")));
-    $(".js-delete-all").toggleClass("notShowing");
+    $(".js-delete-all-users").toggleClass("notShowing");
     // console.log($(".js-user"));
   });
 }

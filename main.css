@@ -146,6 +146,18 @@
     /* bottom: 0px; */
   }
 
+  .form {
+
+  }
+
+  .optional-text {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+
+
+
   .main {
     /* background-color: yellow; */
     /* I promise it's there */
