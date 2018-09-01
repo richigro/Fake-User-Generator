@@ -3,6 +3,7 @@
     padding: 0;
     margin: 0;
   }
+
   html,body{
     height:100%;
   }
@@ -14,43 +15,44 @@
   .landing-page {
     height: 100%;
     background-image: url("/assets/img.jpg"); 
-    width: auto;
+    width: 100%;
     height: 100vh;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-    /* filter: blur(10px); */
   }
+
   .hero-text {
-    position: absolute;
+    padding: 5px;
+    position: static;
     color: white;
+    margin-top: 40vh;
+    margin-left: 10vw;
     font-family: serif;
     font-weight: 200;
     z-index: 1;
     font-size: 40px;
-    background-color: rgba(0, 0, 0, 0.65);
-    top: 40%;
-    left: 10%;
-    display: inline;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: inline-block;
   }
 
   .about {
-    position: absolute;
+    padding: 5px;
+    position: static;
     width: 80%;
     color: white;
     font-family: serif;
     font-weight: 200;
     z-index: 1;
     font-size: 28px;
-    background-color: rgba(0, 0, 0, 0.65);
-    top: 44%;
-    left: 10%;
-    display: inline;
+    background-color: rgba(0, 0, 0, 0.75);
+    margin-left: 10vw;
+    display: inline-block;
   }
 
   .get-started-btn {
-    position: absolute;
-    color: white;
+    position: static;
+    color: black;
     font-family: serif;
     font-weight: 200;
     z-index: 1;
@@ -60,19 +62,18 @@
     border-radius: 10px 10px 10px 10px;
     background-color: #89c63c;
     width: 40%;
-    top: 55%;
-    left: 40%;
+    margin-left: 30vw;
+    margin-top: 1vh;
   }
 
   .get-started-btn:hover {
     background-color: #75aa33;
   }
 
-
   .header{
     background-color: #89c63c;
     width: 100%;
-    height: 8vh;
+    height: 10%;
     position: fixed;
     clear: both;
     top: 0;
@@ -99,25 +100,23 @@
   .mag-glass {
     display: inline-block;
     width: 20%;
-    float: right;
   }
 
-    .main-search {
-      display: inline-block;
-      width: 80%;
+  .main-search {
+    display: inline-block;
+    width: 80%;
+  }
 
+  .login {
+    display: inline-block;
+    /* float: right; */
+    vertical-align: middle;
+    /* width: 20vw; */
     }
-
-    .login {
-      display: inline-block;
-      /* float: right; */
-      vertical-align: middle;
-      /* width: 20vw; */
-
-    }
-    .login > p {
-      margin-left: 10px;
-      display: inline-block;
+    
+  .login > p {
+    margin-left: 10px;
+    display: inline-block;
     }
 
   .tool-bar{
@@ -129,7 +128,7 @@
     max-width: 300px;
     /* float: left; */
     border: 1px solid gray;
-    margin-top: 0vh;
+    margin-top: 10%;
     clear: both;
     /* bottom: 0px; */
   }
@@ -161,17 +160,18 @@
   }
 
   /* mobile view */
-  
   @media screen and (max-width: 840px) {
+    
     .tool-bar {
       display: none;
     }
+
     .app-name{
       display: none;
     }
+
     .logo {
       font-size: 40px;
-      
       margin: 0 auto;
       margin-left: 50%;
       display: block;
@@ -184,11 +184,11 @@
     .search-box {
       display: none;
     }
+
     .login {
       float: right;
     }
   }
-
 
   .user-img {
     border-radius: 100%;
@@ -207,12 +207,12 @@
     overflow-x: hidden;
   }
   
-  
   .content {
     height: auto;
     width: 240px;
     padding: 5px;
   }
+
   .user-btn {
     background-color: #89c63c;
     border-radius: 8px 8px;
@@ -255,9 +255,6 @@
     /* position: absolute; */
     float: right;
     padding: 2px;
-
     /* background-color: pink; */
     font-size: 25px;
-
-
   }

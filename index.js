@@ -2,7 +2,8 @@ function generateLandingPage() {
   return `
   <main class="js-landing landing-page" role="main">
     <h1 class="hero-text">Welcome to Fake User Generator</h1>
-    <p class="about">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates eveniet quasi rerum odio tempora fuga, et maiores mollitia, deleniti dolorum perferendis enim amet exercitationem! Architecto reiciendis ipsam recusandae esse consectetur.</p>
+    <p class="about">Fake user generator; allows you to create fake user, given diferrent creation criteria; such as gender and nationality. Creating a fake user can then be used for diferent purposes; for example, adding user to your database and see how your application looks and works with as many users as you need.</p>
+    <p class="about">Fake user generator,  makes it easy for you to import users to any program, database or excel spread sheet by simply using the copy to clipboard button that is provided for each fake generated user. For more info visit the README.md file on our github page. Happy coding. :)</p>
     <button class="js-app-btn get-started-btn">Get Started Now</button>
   </main>
   `;
