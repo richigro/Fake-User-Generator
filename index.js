@@ -19,15 +19,7 @@ function generateDashboard() {
   <header class="js-header header" role="banner">
     <i class="far fa-caret-square-down notShowing more-actions"></i>
     <i class="logo fas fa-user-secret"></i>
-    <h1 class="app-name">Fake_User_Generator</h1>
-    <div class="search-box">
-      <i class="mag-glass fas fa-search"></i>
-      <input class="main-search" type="text" placeholder="Search for user"/>
-    </div>
-    <div class="login">
-      <p>Log In</p>
-      <p>Sign Up</p>
-    </div>   
+    <h1 class="app-name">Fake User Generator</h1>
   </header>
 
 <section class="js-tool-bar tool-bar" role="Toolbar">
