@@ -40,7 +40,7 @@
     font-weight: 200;
     z-index: 1;
     font-size: 40px;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.85);
     display: inline-block;
   }
 
@@ -53,7 +53,7 @@
     font-weight: 200;
     z-index: 1;
     font-size: 28px;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.85);
     margin-left: 10vw;
     display: inline-block;
   }
@@ -174,7 +174,7 @@
     background-color: #2c2e31;
     border: 3px solid #89c63c;
     display: inline-block;
-    /* margin: 0 auto; */
+    margin: 5px 5px;
     padding: 5px;
     /* float: left; */
     color: #fff;
@@ -212,8 +212,8 @@
     .logo {
       font-size: 40px;
       margin: 0 auto;
-      margin-left: 50%;
-      display: block;
+      /* margin-left: 50%; */
+      display: inline-block;
     }
 
     .more-actions {

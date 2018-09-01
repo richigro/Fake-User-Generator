@@ -20,13 +20,13 @@ function generateDashboard() {
     <h1 class="app-name">Fake User Generator</h1>
   </header>
 
-<section class="js-tool-bar tool-bar" role="Toolbar">
+<section class="js-tool-bar tool-bar" role="toolbar">
   <form class="js-form">
     <fieldset>
       <h2>How many Users</h2>
-        <input class="js-input" type="number" min="1" max="50" required />
-        <h2>Filters</h2>
-        <h3>Gender</h3>
+        <input class="js-input" type="number" min="1" max="100" required />
+        <h2 class="filters-text">Filters</h2>
+        <h3 class="gender-text">Gender</h3>
         <input type="radio" name="gender" value="male" checked> Male<br>
         <input type="radio" name="gender" value="female"> Female<br>
         <input type="radio" name="gender" value="any" checked="checked"> Any
@@ -87,8 +87,9 @@ function getStarted() {
        "@lala.com.mx",
        "@codsworth.co.uk" 
     ]];
-     if(randomNumber === domains.length) {
-       domainName =  firstName + "." + lastName + randNum + domains[randomNumber][Math.floor(Math.random() * 5)];
+     if(randomNumber === domains.length-1) {
+       domainName =  firstName + "." + lastName + randNum + domains[randomNumber][(Math.floor(Math.random() * 5))];
+       console.log(domainName);
      } else {
        domainName = firstName + "." + lastName + randNum +  domains[randomNumber];
      }
@@ -294,11 +295,10 @@ function copyTextToClipboard(text) {
 function copyToClipboard(){
   $(".js-body").on('click', ".js-clipboard-btn", event => {
     const userText = $(event.target).prev().find(".js-user-info").text();
-    console.log(userText);
+    // console.log(userText);
     copyTextToClipboard(userText);
   });
 }
-
 
 // copy to cliboard code neds here
 
