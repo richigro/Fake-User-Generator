@@ -34,26 +34,26 @@ function generateDashboard() {
       <input type="radio" name="gender" id="any" value="any" checked="checked"/>
       <label for="any">Any</label>
    </fieldset>
-   <h3>Nationality</h3>
-   <select class="nationality">
-    <option value="any">Any</option>
-    <option value="au">Australia</option>
-    <option value="br">Brazil</option>
-    <option value="ca">Canada</option>
-    <option value="ch">Switzerland</option>
-    <option value="de">Germany</option>
-    <option value="dk">Denmark</option>
-    <option value="es">Spain</option>
-    <option value="fi">Finland</option>
-    <option value="fr">France</option>
-    <option value="gb">Great Britain</option>
-    <option value="ir">Iran</option>
-    <option value="no">Norway</option>
-    <option value="nz">New Zealand</option>
-    <option value="tr">Turkey</option>
-    <option value="us">United States</option>
+   <h3 class="nationality-text">Nationality</h3>
+   <select label="nationalities" class="nationality-dropdown">
+    <option label="Any" value="any">Any</option>
+    <option label="Australia" value="au">Australia</option>
+    <option label="Brazil" value="br">Brazil</option>
+    <option label="Canada" value="ca">Canada</option>
+    <option label="Switzerland" value="ch">Switzerland</option>
+    <option label="Germany" value="de">Germany</option>
+    <option label="Denmark" value="dk">Denmark</option>
+    <option label="Spain" value="es">Spain</option>
+    <option label="Finland" value="fi">Finland</option>
+    <option label="France" value="fr">France</option>
+    <option label="Great Britain" value="gb">Great Britain</option>
+    <option label="Iran" value="ir">Iran</option>
+    <option label="Norway" value="no">Norway</option>
+    <option label="New Zealand" value="nz">New Zealand</option>
+    <option label="Turkey" value="tr">Turkey</option>
+    <option label="United States" value="us">United States</option>
    </select>  
-   <button>Submit</button>
+   <button class="submmit-form">Submit</button>
   </form>
   <button class="js-delete-all-users delete-all-users notShowing">Delete All Users</button>   
 </section>
