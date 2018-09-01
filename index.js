@@ -56,6 +56,9 @@ function generateDashboard() {
 </section>
 
 <main class="js-main main" role="main" aria-live="polite">
+  <div class="js-user-container user-container">
+  <!-- Users go here -->
+  </div>
 </main>
 
 <footer class="footer">   
@@ -166,19 +169,21 @@ function getStarted() {
       <p>More Info</p>
     </div>
     <div class="js-content notShowing content">
-      <p class="name">Name: ${data.name.title} ${data.name.first} ${data.name.last}</p>
-      <p class="gender">Gender: ${data.gender}</p> 
-      <p class="email">Email: ${randomEmailDomain(data.name.first, data.name.last)}</p>
-      <p class="userName">UserName: ${data.login.username}</p>
-      <p class="password">Password: ${data.login.salt}</p>
-      <p class="city">City: ${data.location.city}</p>
-      <p class="address">Address: ${data.location.street}</p>
-      <p class="state">State: ${data.location.state}</p>
-      <p class="zipCode">Zip Code: ${data.location.postcode}</p>
-      <p class="age">Age: ${data.dob.age}</p>
-      <p class="dob">Date of Birth: ${data.dob.date}</p> 
-      <p class="cell">Cell Phone: ${data.cell}</p>
-      <p class="nat">Nationality: ${nationality(data.nat)}</p>
+      <pre class="js-user-info user-info"> 
+      Name: ${data.name.title} ${data.name.first} ${data.name.last}
+      Gender: ${data.gender} 
+      Email: ${randomEmailDomain(data.name.first, data.name.last)}
+      UserName: ${data.login.username}
+      Password: ${data.login.salt}
+      City: ${data.location.city}
+      Address: ${data.location.street}
+      State: ${data.location.state}
+      Zip Code: ${data.location.postcode}
+      Age: ${data.dob.age}
+      Date of Birth: ${data.dob.date} 
+      Cell Phone: ${data.cell}
+      Nationality: ${nationality(data.nat)}
+      </pre>
     </div>   
     <button class="js-clipboard-btn user-btn notShowing">Copy to clipboard <i alt="copy icon" class="far fa-copy"></i></button>
    </section>
@@ -196,7 +201,7 @@ function getStarted() {
       //recieves data in array of objects, each object is a user.
       data.results.forEach(obj => {
         //appends each user to main dashboard view
-        $(".js-main").append(generateUser(obj));
+        $(".js-user-container").append(generateUser(obj));
       });
      }
    });
@@ -287,11 +292,10 @@ function copyTextToClipboard(text) {
 
 
 function copyToClipboard(){
-  $(".js-main").on('click', ".js-clipboard-btn", event => {
-    const userText = $(this).closest(".js-content").text();
-    console.log("test");
+  $(".js-body").on('click', ".js-clipboard-btn", event => {
+    const userText = $(event.target).prev().find(".js-user-info").text();
     console.log(userText);
-    copyTextToClipboard(text);
+    copyTextToClipboard(userText);
   });
 }
 
