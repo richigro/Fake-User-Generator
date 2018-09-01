@@ -164,6 +164,17 @@
 
   /* mobile view */
   @media screen and (max-width: 840px) {
+
+
+    .main {
+      background-color: yellow;
+      height: 100%;
+      /* position: fixed; */
+      margin-top: 10vh;
+      /* display: inline-block; */
+      margin-left: 20%;
+      width: 80%;
+    }
     
     .landing-page {
       height: auto;
