@@ -1,4 +1,4 @@
-
+let dashboardView = false;
 // basic landing page with info about the app
 function generateLandingPage() {
   return `
@@ -18,6 +18,46 @@ function generateDashboard() {
     <i class="far fa-caret-square-down notShowing more-actions"></i>
     <i class="logo fas fa-user-secret"></i>
     <h1 class="app-name">Fake User Generator</h1>
+    <i class="js-mobile-settings mobile-bars notShowing fas fa-bars"></i>
+    <section class="js-mobile-tool-bar mobile-tool-bar" role="search">
+  <form class="js-form js-mobile-form form notShowing">
+  <label class="users-text" for="how-many">How many users do you want to create ?</label>
+    <input id="how-many" class="js-input number-of-users-input" type="number" min="1" max="100" required />
+    <h2 class="filters-text">Filters<span class="optional-text">(optional)</span></h2>
+    <fieldset class="radio-buttons" role="radiogroup">
+      <legend class="gender-text">Gender</legend>
+      <input type="radio" name="gender" id="male" value="male"/>
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="female" value="female"/>
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="any" value="any" checked="checked"/>
+      <label for="any">Any <span class="default">(default)</span></label>
+   </fieldset>
+   <h3 class="nationality-text">Nationality</h3>
+   <select label="nationalities" class="nationality-dropdown">
+    <option label="Any (default)" value="any">Any<span class="default">(default)</span></option>
+    <option label="Australia" value="au">Australia</option>
+    <option label="Brazil" value="br">Brazil</option>
+    <option label="Canada" value="ca">Canada</option>
+    <option label="Switzerland" value="ch">Switzerland</option>
+    <option label="Germany" value="de">Germany</option>
+    <option label="Denmark" value="dk">Denmark</option>
+    <option label="Spain" value="es">Spain</option>
+    <option label="Finland" value="fi">Finland</option>
+    <option label="France" value="fr">France</option>
+    <option label="Great Britain" value="gb">Great Britain</option>
+    <option label="Iran" value="ir">Iran</option>
+    <option label="Norway" value="no">Norway</option>
+    <option label="New Zealand" value="nz">New Zealand</option>
+    <option label="Turkey" value="tr">Turkey</option>
+    <option label="United States" value="us">United States</option>
+   </select>  
+   <button class="generate-users-form">Generate</button>
+  </form>
+  <button class="js-delete-all-users delete-all-users notShowing">Delete All Users</button>   
+</section>
+
+
   </header>
 
 <section class="js-tool-bar tool-bar" role="search">
@@ -75,6 +115,9 @@ function getStarted() {
   $(".js-body").on("click", ".js-app-btn", event => {
     $(".js-body").empty();
     $(".js-body").append(generateDashboard());
+    if(window.innerWidth <= 840 && dashboardView === true) {
+      console.log("do shizzle!");
+    }
   })
 }
 
@@ -305,6 +348,29 @@ function copyToClipboard(){
 
 // copy to cliboard code neds here
 
+
+// what to do if user resizes the screen down to mobile view 
+function userResize() {
+    $(window).resize(function() {
+      if(window.innerWidth <= 840){
+        //toggle setting bar on or off
+        $(".js-mobile-settings").toggleClass("notShowing");
+      }else {
+        //make sure second form is not there 
+        $(".js-mobile-form").remove();
+      } 
+    });
+    
+}
+
+
+function settingClicked() {
+  $(".js-body").on("click", ".js-mobile-settings", event => {
+    // show the mobile version of form
+    $(".js-mobile-form").toggleClass("notShowing");
+  })
+};
+
  
  function appInstance(){
   $(".js-body").append(generateLandingPage());
@@ -315,6 +381,8 @@ function copyToClipboard(){
    viewMoreInfo();
    removeUser();
    deleteAllUsers();
+   settingClicked();
+   userResize();
  }
  
  $(appInstance);
