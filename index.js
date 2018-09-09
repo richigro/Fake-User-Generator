@@ -18,9 +18,9 @@ function generateDashboard() {
     <i class="far fa-caret-square-down notShowing more-actions"></i>
     <i class="logo fas fa-user-secret"></i>
     <h1 class="app-name">Fake User Generator</h1>
-    <i class="js-mobile-settings mobile-bars notShowing fas fa-bars"></i>
+    <i class="js-mobile-settings mobile-bars fas fa-bars"></i>
     <section class="js-mobile-tool-bar mobile-tool-bar" role="search">
-  <form class="js-form js-mobile-form form notShowing">
+  <form class="js-form js-mobile-form mobile-form form active">
   <label class="users-text" for="how-many">How many users do you want to create ?</label>
     <input id="how-many" class="js-input number-of-users-input" type="number" min="1" max="100" required />
     <h2 class="filters-text">Filters<span class="optional-text">(optional)</span></h2>
@@ -53,8 +53,7 @@ function generateDashboard() {
     <option label="United States" value="us">United States</option>
    </select>  
    <button class="generate-users-form">Generate</button>
-  </form>
-  <button class="js-delete-all-users delete-all-users notShowing">Delete All Users</button>   
+  </form>   
 </section>
 
 
@@ -94,8 +93,7 @@ function generateDashboard() {
     <option label="United States" value="us">United States</option>
    </select>  
    <button class="generate-users-form">Generate</button>
-  </form>
-  <button class="js-delete-all-users delete-all-users notShowing">Delete All Users</button>   
+  </form>   
 </section>
 
 <main class="js-main main" role="main" aria-live="polite">
@@ -270,7 +268,6 @@ function getStarted() {
     // calls ajax function with appropiate parameters.
      getDataFromApi(gender, nationality, numberOfUsers);
     // shows option to delete all users that were rendered in first load. 
-    $(".js-delete-all-users").toggleClass("notShowing");
    });  
  }
  
@@ -291,18 +288,6 @@ function removeUser() {
   $(".js-body").on("click", ".js-remove", event => {
     // Removes clicked on user, when x button is clicked. 
     $(event.target).closest(".user").remove();
-  });
-}
-
-// Deletes all users at once from the dashboard view.
-function deleteAllUsers() {
-  $(".js-body").on("click", ".js-delete-all-users", event => {
-    console.log($.contains( $("div"), $("p")));
-    // Empties the dashboard view.
-    // $(".js-main").empty();
-    console.log($.contains( $("div"), $("p")));
-    $(".js-delete-all-users").toggleClass("notShowing");
-    // console.log($(".js-user"));
   });
 }
 
@@ -350,27 +335,12 @@ function copyToClipboard(){
 
 
 // what to do if user resizes the screen down to mobile view 
-function userResize() {
-    $(window).resize(function() {
-      if(window.innerWidth <= 840){
-        //toggle setting bar on or off
-        $(".js-mobile-settings").toggleClass("notShowing");
-      }else {
-        //make sure second form is not there 
-        $(".js-mobile-form").remove();
-      } 
-    });
-    
-}
-
-
-function settingClicked() {
-  $(".js-body").on("click", ".js-mobile-settings", event => {
-    // show the mobile version of form
-    $(".js-mobile-form").toggleClass("notShowing");
+function toggleForm() {
+  $(".js-body").on("click", ".mobile-bars", event => {
+    // toglles form in and out of view
+    $(".mobile-form").toggleClass("active");
   })
-};
-
+}
  
  function appInstance(){
   $(".js-body").append(generateLandingPage());
@@ -380,9 +350,7 @@ function settingClicked() {
    randomEmailDomain();
    viewMoreInfo();
    removeUser();
-   deleteAllUsers();
-   settingClicked();
-   userResize();
+   toggleForm();
  }
  
  $(appInstance);

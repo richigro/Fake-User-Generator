@@ -200,7 +200,24 @@ input[type="radio"] {
     color: #fff;
     border-radius: 5px 20px 5px;
   }
+  /* out of user view */
+  .mobile-form {
+    position: absolute;
+    /* top: -450px; */
+    top: 80px;
+    background-color: #2c2e31;
+    width: 100%;
+    color: rgba(204, 203, 203, 0.9)
+  }
+/* out of users view */
+  .mobile-bars{
+    position: absolute;
+    right: -20px;
+  }
 
+  .active {
+    top: -450px;
+  }
   /* mobile view */
   @media screen and (max-width: 840px) {
 
@@ -217,6 +234,7 @@ input[type="radio"] {
       top: 20px;
       right: 3px;
       vertical-align: middle;
+      display: inline;
     }
 
     .form {
@@ -239,11 +257,7 @@ input[type="radio"] {
       display: none;
     }
 
-    .mobile-tool-bar {
-      background-color: #2c2e31;
-      color: white;
-      margin-top: 0;
-    }
+    
 
     .app-name{
       display: none;
