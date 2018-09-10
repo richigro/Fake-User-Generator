@@ -20,21 +20,21 @@ function generateDashboard() {
     <h1 class="app-name">Fake User Generator</h1>
     <i class="js-mobile-settings mobile-bars fas fa-bars"></i>
     <section class="js-mobile-tool-bar mobile-tool-bar" role="search">
-  <form class="js-form js-mobile-form mobile-form form active">
+  <form class="js-mobile-form mobile-form form active">
   <label class="users-text" for="how-many">How many users do you want to create ?</label>
-    <input id="how-many" class="js-input number-of-users-input" type="number" min="1" max="100" required />
+    <input id="how-many" class="js-mobile-input number-of-users-input" type="number" min="1" max="100" required />
     <h2 class="filters-text">Filters<span class="optional-text">(optional)</span></h2>
     <fieldset class="radio-buttons" role="radiogroup">
       <legend class="gender-text">Gender</legend>
-      <input type="radio" name="gender" id="male" value="male"/>
+      <input class="mobile-gender" type="radio" name="gender" id="male" value="male"/>
       <label for="male">Male</label>
-      <input type="radio" name="gender" id="female" value="female"/>
+      <input class="mobile-gender" type="radio" name="gender" id="female" value="female"/>
       <label for="female">Female</label>
-      <input type="radio" name="gender" id="any" value="any" checked="checked"/>
+      <input class="mobile-gender" type="radio" name="gender" id="any" value="any" checked="checked"/>
       <label for="any">Any <span class="default">(default)</span></label>
    </fieldset>
    <h3 class="nationality-text">Nationality</h3>
-   <select label="nationalities" class="nationality-dropdown">
+   <select label="nationalities" class="js-mobile-nationality nationality-dropdown">
     <option label="Any (default)" value="any">Any<span class="default">(default)</span></option>
     <option label="Australia" value="au">Australia</option>
     <option label="Brazil" value="br">Brazil</option>
@@ -66,15 +66,15 @@ function generateDashboard() {
     <h2 class="filters-text">Filters<span class="optional-text">(optional)</span></h2>
     <fieldset class="radio-buttons" role="radiogroup">
       <legend class="gender-text">Gender</legend>
-      <input type="radio" name="gender" id="male" value="male"/>
+      <input class="gender" type="radio" name="gender" id="male" value="male"/>
       <label for="male">Male</label>
-      <input type="radio" name="gender" id="female" value="female"/>
+      <input class="gender" type="radio" name="gender" id="female" value="female"/>
       <label for="female">Female</label>
-      <input type="radio" name="gender" id="any" value="any" checked="checked"/>
+      <input class="gender" type="radio" name="gender" id="any" value="any" checked="checked"/>
       <label for="any">Any <span class="default">(default)</span></label>
    </fieldset>
    <h3 class="nationality-text">Nationality</h3>
-   <select label="nationalities" class="nationality-dropdown">
+   <select label="nationalities" class="js-nationality nationality-dropdown">
     <option label="Any (default)" value="any">Any<span class="default">(default)</span></option>
     <option label="Australia" value="au">Australia</option>
     <option label="Brazil" value="br">Brazil</option>
@@ -214,7 +214,7 @@ function getStarted() {
       <p>More Info</p>
     </div>
     <div class="js-content notShowing content">
-      <pre class="js-user-info user-info"> 
+      <pre class="js-user-info user-info" id="mobile-info"> 
       Name: ${data.name.title} ${data.name.first} ${data.name.last}
       Gender: ${data.gender} 
       Email: ${randomEmailDomain(data.name.first, data.name.last)}
@@ -238,6 +238,7 @@ function getStarted() {
  // call the server with the following parameter, if provied; gender, number and nationality.
  function getDataFromApi(gender, nat, numberOfUsers){
    // constructed query string
+   console.log(gender, nat, numberOfUsers);
    const url = `https://randomuser.me/api/?results=${numberOfUsers}&gender=${gender}&nat=${nat}`;
    // ajax call to json api (GET default)
    $.ajax({
@@ -262,14 +263,33 @@ function getStarted() {
      // clear input, for good ux.
      $(".js-input").val("");
      // (optional) select user's nationality if selected.
-     const nationality = $(".nationality").val();
+     const nationality = $(".js-nationality").val();
      // (optional) select user's gender if selected.
-     const gender = $("input[name=gender]:checked").val();
+    //  const gender = $("input[name=gender]:checked").val();
+    const gender = $(event.target).find("input[name='gender']:checked").val()
     // calls ajax function with appropiate parameters.
      getDataFromApi(gender, nationality, numberOfUsers);
     // shows option to delete all users that were rendered in first load. 
    });  
  }
+
+ function mobileFormSubmit() {
+  $(".js-body").on("submit", ".js-mobile-form", event => {
+    // stops default behaviour of trying to submmit to a server.
+    event.preventDefault();
+    //get number of desired users.
+    const numberOfUsers = $(".js-mobile-input").val();
+    // clear input, for good ux.
+    $(".js-input").val("");
+    // (optional) select user's nationality if selected.
+    const nationality = $(".js-mobile-nationality").val();
+    // (optional) select user's gender if selected.
+    const gender = $(event.target).find("input[name='gender']:checked").val();
+   // calls ajax function with appropiate parameters.
+    getDataFromApi(gender, nationality, numberOfUsers);
+   // shows option to delete all users that were rendered in first load. 
+  });  
+}
  
  //Event listener; shows more info about user dropdown fashion.
  function viewMoreInfo() {
@@ -346,6 +366,7 @@ function toggleForm() {
   $(".js-body").append(generateLandingPage());
    getStarted();
    formSubmit();
+   mobileFormSubmit();
    copyToClipboard();
    randomEmailDomain();
    viewMoreInfo();

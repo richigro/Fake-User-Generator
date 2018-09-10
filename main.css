@@ -181,7 +181,7 @@ input[type="radio"] {
   .user-container {
     width: auto;
     height: auto;
-    /* border: red solid 5px; */
+    border: red solid 5px;
     padding: 5px;
     margin-left: 0;
     overflow: hidden;
@@ -190,7 +190,7 @@ input[type="radio"] {
   .user {
     height: auto;
     width: 50vw;
-    min-width: 400px;
+    min-width: 200px;
     max-width: 600px;
     background-color: #2c2e31;
     border: 3px solid #89c63c;
@@ -204,7 +204,7 @@ input[type="radio"] {
   .mobile-form {
     position: absolute;
     /* top: -450px; */
-    top: 80px;
+    top: 20px;
     background-color: #2c2e31;
     width: 100%;
     color: rgba(204, 203, 203, 0.9)
@@ -216,17 +216,30 @@ input[type="radio"] {
   }
 
   .active {
-    top: -450px;
+    top: -480px;
   }
-  /* mobile view */
+/* ========================================================================= */
+/*                          MObile views                                    */
+/* ======================================================================== */
+
   @media screen and (max-width: 840px) {
 
     .main {
-      /* background-color: yellow; */
+      background-color: yellow;
       height: 100%;
+      position: absolute;
+      
       margin-top: 0px;
       margin-left: 0;
       width: 100%;
+      z-index: -2;
+    }
+
+    .user-container{
+      margin-top: 80px;
+      position: absolute;
+      z-index: -1;
+      /* margin: 0 auto; */
     }
 
     .mobile-bars {
@@ -237,10 +250,25 @@ input[type="radio"] {
       display: inline;
     }
 
-    .form {
+    /* .form {
       margin-top: 0;
-    }
+    } */
     
+    .user {
+      width: 80vw;
+    }
+
+    /* .content{
+      text-align: left;
+    } */
+
+    #mobile-info {
+      margin-left: -20px;
+      font-size: 15px;
+      /* text-transform: capitalize; */
+      text-align: left;
+    }
+
     .landing-page {
       height: auto;
       background-image: url("/assets/img.jpg"); 
@@ -251,13 +279,12 @@ input[type="radio"] {
     }
     .header {
       margin-bottom: 0;
+      z-index: 1;
     }
 
     .tool-bar {
       display: none;
     }
-
-    
 
     .app-name{
       display: none;
@@ -273,13 +300,6 @@ input[type="radio"] {
       display: inline;
     }
 
-    .search-box {
-      display: none;
-    }
-
-    .login {
-      float: right;
-    }
   }
 
   /* end of mobile views */
