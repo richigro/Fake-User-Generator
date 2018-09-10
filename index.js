@@ -17,7 +17,7 @@ function generateDashboard() {
     <i class="far fa-caret-square-down notShowing more-actions"></i>
     <i class="logo fas fa-user-secret"></i>
     <h1 class="app-name">Fake User Generator</h1>
-    <i class="js-mobile-settings mobile-bars fas fa-bars"></i>
+    <i class="js-mobile-settings mobile-bars fas  fa-bars"></i>
     <section class="js-mobile-tool-bar mobile-tool-bar" role="search">
   <form class="js-mobile-form mobile-form form active">
   <label class="users-text" for="how-many">How many users do you want to create ?</label>
@@ -353,6 +353,7 @@ function toggleForm() {
   $(".js-body").on("click", ".mobile-bars", event => {
     // toglles form in and out of view
     $(".mobile-form").toggleClass("active");
+    $(".mobile-bars").toggleClass("fa-times", "fa-bars");
   })
 }
  
