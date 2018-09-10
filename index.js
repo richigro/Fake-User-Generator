@@ -1,4 +1,3 @@
-let dashboardView = false;
 // basic landing page with info about the app
 function generateLandingPage() {
   return `
@@ -113,10 +112,7 @@ function getStarted() {
   $(".js-body").on("click", ".js-app-btn", event => {
     $(".js-body").empty();
     $(".js-body").append(generateDashboard());
-    if(window.innerWidth <= 840 && dashboardView === true) {
-      console.log("do shizzle!");
-    }
-  })
+  });
 }
 
 // randomises email domain name to a more creible domain insted of just @example.com
@@ -133,7 +129,6 @@ function getStarted() {
     ]];
      if(randomNumber === domains.length-1) {
        domainName =  firstName + "." + lastName + randNum + domains[randomNumber][(Math.floor(Math.random() * 5))];
-       console.log(domainName);
      } else {
        domainName = firstName + "." + lastName + randNum +  domains[randomNumber];
      }
@@ -238,7 +233,6 @@ function getStarted() {
  // call the server with the following parameter, if provied; gender, number and nationality.
  function getDataFromApi(gender, nat, numberOfUsers){
    // constructed query string
-   console.log(gender, nat, numberOfUsers);
    const url = `https://randomuser.me/api/?results=${numberOfUsers}&gender=${gender}&nat=${nat}`;
    // ajax call to json api (GET default)
    $.ajax({
@@ -351,7 +345,7 @@ function copyToClipboard(){
   });
 }
 
-// copy to cliboard code neds here
+// copy to cliboard code ends here
 
 
 // what to do if user resizes the screen down to mobile view 
