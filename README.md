@@ -17,7 +17,8 @@ All of the randomly generated data is fake and therefore do not belong to a real
 Using the Fake-User_Generator app is simple, just follow the step below, for an easy walktrough of the app.
 
 Step 1.)
-  Our landing page;
+  To get started using the app click on get started at the bottom of the home page.
+  <img src="assests/Fake User Generator.png" width="300" height="auto">
 
 <h2>Technologies used</h2>
 This application uses the  random user generator api found at: https://randomuser.me/
