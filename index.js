@@ -352,6 +352,10 @@ function copyToClipboard(){
 function toggleForm() {
   $(".js-body").on("click", ".mobile-bars", event => {
     // toglles form in and out of view
+    if($(".mobile-form").hasClass("notShowing")) {
+      //remove the hidden class
+      $(".mobile-form").removeClass("notShowing");
+    }
     $(".mobile-form").toggleClass("active");
     $(".mobile-bars").toggleClass("fa-times", "fa-bars");
   })
@@ -361,7 +365,12 @@ function toggleForm() {
 //remove mobile form if it is not yet removed
 function userResize(){
   $(window).resize( event => {
-    console.log(window.innerWidth);
+    if(window.innerWidth > 840 ){
+      // run toggle function
+      $(".mobile-form").addClass("notShowing");
+      $(".mobile-bars").toggleClass("fa-times", "fa-bars");
+    }
+    // console.log(window.innerWidth);
   });
 }
 
