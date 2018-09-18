@@ -356,6 +356,15 @@ function toggleForm() {
     $(".mobile-bars").toggleClass("fa-times", "fa-bars");
   })
 }
+
+// listen for user resizing and 
+//remove mobile form if it is not yet removed
+function userResize(){
+  $(window).resize( event => {
+    console.log(window.innerWidth);
+  });
+}
+
  
  function appInstance(){
   $(".js-body").append(generateLandingPage());
@@ -367,6 +376,7 @@ function toggleForm() {
    viewMoreInfo();
    removeUser();
    toggleForm();
+   userResize();
  }
  
  $(appInstance);
