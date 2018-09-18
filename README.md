@@ -17,8 +17,31 @@ All of the randomly generated data is fake and therefore do not belong to a real
 Using the Fake-User_Generator app is simple, just follow the step below, for an easy walktrough of the app.
 
 Step 1.)
-  To get started using the app click on get started at the bottom of the home page.
-  <img src="assests/Fake User Generator.png" width="300" height="auto">
+  <srong>To get started using the app click on get started at the bottom of the home page.</strong>
+  
+  
+  <img src="assets/fk.png" width="500" height="auto" style="display: block; margin: 0 auto;">
+  
+  
+ Step 2.)
+  <srong>Fill out the form on the left hand side of the app</strong>
+  The number of users is required while gender and nationality is optional
+  
+  
+  <img src="assets/fk1.png" width="500" height="auto" style="display: block; margin: 0 auto;"> 
+  
+  
+  Step 3.)
+  <srong>Click on generate at the bottom of the form to generate the desired fake users</strong>
+  
+  
+  <img src="assets/fk3.png" width="500" height="auto" style="display: block; margin: 0 auto;">
+  
+  Step 4.)
+  <srong>To get started using the app click on get started at the bottom of the home page.</strong>
+  
+  
+  <img src="assets/fk4.png" width="500" height="auto" style="display: block; margin: 0 auto;">
 
 <h2>Technologies used</h2>
 This application uses the  random user generator api found at: https://randomuser.me/
