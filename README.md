@@ -11,7 +11,7 @@ This app was created because I wanted an easy way to create dummy data for my ap
 users at the same time; while at the same time not having real users. This application also serves as a great way to test new new changes that you may want to apply to a real user database but cannot afford to change or lose data while testing.
 
 <h2>Important Notice</h2>
-All of the randomly generated data is fake and therefore do not belong to a real person; the source api uses a long list a name given for a nationality and and adress, everything else is made up and made realistic by careful selection of each fake users data. All of the images you see in this app are Free Source images and are generated randomly each time the api is called, which can cause duplication of images for a diferrent user in some cases. 
+All of the randomly generated data is fake and therefore do not belong to a real person; the source api uses a long list a name given for a nationality and and adress, everything is made up and made realistic by careful selection of each fake users data. All of the images you see in this app are Free Source images and are generated randomly each time the api is called, which can cause duplication of images for a diferrent user in some cases. 
 
 <h2> How to Use </h2>
 Using the Fake-User_Generator app is simple, just follow the step below, for an easy walktrough of the app.
