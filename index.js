@@ -260,7 +260,7 @@ function getStarted() {
      const nationality = $(".js-nationality").val();
      // (optional) select user's gender if selected.
     //  const gender = $("input[name=gender]:checked").val();
-    const gender = $(event.target).find("input[name='gender']:checked").val()
+    const gender = $(event.target).find("input[name='gender']:checked").val();
     // calls ajax function with appropiate parameters.
      getDataFromApi(gender, nationality, numberOfUsers);
     // shows option to delete all users that were rendered in first load. 
@@ -370,7 +370,6 @@ function userResize(){
       $(".mobile-form").addClass("notShowing");
       $(".mobile-bars").toggleClass("fa-times", "fa-bars");
     }
-    // console.log(window.innerWidth);
   });
 }
 
